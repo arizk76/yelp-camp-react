@@ -5,6 +5,8 @@ module.exports = {
     extend: {
       colors: {
         'floral-white': '#f9f6f1',
+        Makara: '#63605B',
+        'baby-blue': '#7AC5EA',
       },
       screens: {
         tablet: { min: '678px', max: '1023px' },
