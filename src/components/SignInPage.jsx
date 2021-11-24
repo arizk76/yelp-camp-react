@@ -1,19 +1,44 @@
-import { Link } from 'react-router-dom';
+import { useRef, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useFireAuth } from '../utils/firebase/fireAuth';
+import { getUserName } from '../utils/firebase/db';
 import userTestimonial from '../images/userTestimonial.svg';
+import Loading from './Loading';
 
 const SignInPage = () => {
+  const [loading, setLoading] = useState(false);
+  const { fireSignIn, setName } = useFireAuth();
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  let navigate = useNavigate();
+
+  const handleSignIn = async (evt) => {
+    evt.preventDefault();
+
+    try {
+      setLoading(true);
+      await fireSignIn(emailRef.current.value, passwordRef.current.value);
+      let userName = await getUserName(emailRef.current.value);
+      setName(userName);
+      setLoading(false);
+      navigate(-1);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <section className='px-6'>
       <p className='p-2 text-5xl font-bold'>
         Start exploring camps from all over the world.
       </p>
-      <form className=' flex flex-col mt-4 mb-8'>
+      <form onSubmit={handleSignIn} className=' flex flex-col mt-4 mb-8'>
         <label className='text-Makara text-xl py-4 font-semibold'>Email</label>
         <input
           className='px-4 py-6 bg-floral-white text-lg rounded'
           autoComplete='off'
           placeholder='Enter Your Email'
           type='email'
+          ref={emailRef}
         ></input>
         <label className='text-Makara text-xl py-4 font-semibold'>
           Password
@@ -23,9 +48,22 @@ const SignInPage = () => {
           autoComplete='off'
           placeholder='Your Password'
           type='password'
+          ref={passwordRef}
         ></input>
-
-        <button className='mt-6 w-full h-20 rounded-md bg-black text-white p-5 font-semibold text-xl tracking-wider'>
+        {/* {loading && (
+          <button type='button' disabled>
+            <svg
+              className='animate-spin h-5 w-5 mr-3 ...'
+              viewBox='0 0 24 24'
+            ></svg>
+            Processing
+          </button>
+        )} */}
+        <button
+          type='submit'
+          className='relative mt-6 w-full h-20 rounded-md bg-black text-white p-5 font-semibold text-xl tracking-wider'
+        >
+          {loading && <Loading />}
           Login
         </button>
       </form>

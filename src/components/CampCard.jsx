@@ -21,7 +21,7 @@ const CampCard = ({ name, title, image, campgroundId }) => {
       '
         type='button'
       >
-        <Link to={campgroundId}> View Campground </Link>
+        <Link to={campgroundId}>View Campground</Link>
       </button>
     </div>
   );

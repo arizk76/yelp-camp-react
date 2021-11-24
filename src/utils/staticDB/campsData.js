@@ -107,4 +107,76 @@ export const reviews = [
       'Definitely recommend going there, not too far and not a lot of people ta ruin the experience',
     createdAt: '3 days ago',
   },
+  {
+    id: 4,
+    campgroundId: 'seven-sisters-waterfall',
+    userName: 'Senan Abubakar',
+    description:
+      'There is no sign for the park on the road you need to use due to current road construction in the area. As soon as you get past the Applewood Farmhouse complex on the right side of the road, take your next left. Do not continue around the corner like we did',
+    createdAt: '11 days ago',
+  },
+  {
+    id: 5,
+    campgroundId: 'calaguas-island',
+    userName: 'Hodel Camilla',
+    description:
+      'Very convenient to Pigeon Forge. Their back-in water front sites are in reality backed up to a drainage ditch We camped at Pigeon Forge Landing RV Resort in a Motorhome.',
+    createdAt: '2 days ago',
+  },
+  {
+    id: 6,
+    campgroundId: 'calaguas-island',
+    userName: 'Akhil Vita',
+    description:
+      'We live in Maine, and have always wanted to check this place out. We drove there today to see if there was water and what it was all About. There is no clear signage when you enter so we didnt know if we had to stop or where the office even was. We slowly drove up and some guy was rude to us. We are local people trying to give them business during a crazy time, and he basically was mad that we drove onto the property at all. Wont be coming here. And the friends we have from the area wont be either!! Maybe be a little nicer to potential customers my friend!! We camped at Lazy Frog Campground in a Motorhome.',
+    createdAt: '4 days ago',
+  },
+  {
+    id: 7,
+    campgroundId: 'onay-beach',
+    userName: 'Aqila Gulmira',
+    description:
+      'Accommodating friendly owners, great family campground. I would personally highly recommend staying here. Great experience. We camped at Lazy Frog Campground in a Travel Trailer.',
+    createdAt: '15h ago',
+  },
+  {
+    id: 8,
+    campgroundId: 'onay-beach',
+    userName: 'Hudson Luca',
+    description:
+      'Very nice pet and family friendly campground. The owners are wonderful and work so hard to make sure everything is great for everyone. Constantly working to improve the grounds. Went for a weekend and ended up getting a seasonal site. We are still exploring the ATV trails in the area and have found so far that the wooded trail off of the power lines are the best so far. Very scenic and we will maintained. We camped at Lazy Frog Campground in a Travel Trailer.',
+    createdAt: '5 days ago',
+  },
+  {
+    id: 9,
+    campgroundId: 'latik-riverside',
+    userName: 'Jena Adolf',
+    description:
+      'Beautiful park. A lot of seasonals (and year round?) but most maintain them well. Everyone we met were very friendly. The pond is nice as well as the well maintained trails around it. Very quiet at night! We camped at Potters Place Campground in a Travel Trailer.',
+    createdAt: '4 days ago',
+  },
+  {
+    id: 10,
+    campgroundId: 'seven-sisters-waterfall',
+    userName: 'Hodel Camilla',
+    description:
+      'This is a great campground for ATV s. I came with my family and friends. The seasonal people were great: they knew all the trails and shared their info with us. One gentleman helped a friend of ours with the use of his tools and his time. The owners were very friendly and even came by to see if we needed anything. We were also invited to a community fire. The sites were pretty good in size. We went late in the camping seasons so the pool was closed. We plan to go back next year. Our friends are considering purchasing a seasonal site. We camped at Lazy Frog Campground in a Truck Camper.',
+    createdAt: '5h ago',
+  },
+  {
+    id: 11,
+    campgroundId: 'seven-sisters-waterfall',
+    userName: 'Senan Abubakar',
+    description:
+      'There is no sign for the park on the road you need to use due to current road construction in the area. As soon as you get past the Applewood Farmhouse complex on the right side of the road, take your next left. Do not continue around the corner like we did',
+    createdAt: '7 days ago',
+  },
+  {
+    id: 12,
+    campgroundId: 'buloy-springs',
+    userName: 'Aqila Gulmira',
+    description:
+      'Most of the park is long term seasonal. Most are well maintained, but some not so much. Very much a family atmosphere with kids riding around on bikes, and adults on golf carts. It is an older park that is family run in a heavily forested location. I have stayed here 2 times because it is located in an area I wanted to be, and would not hesitate to return. Reservation requires advance payment of one nights stay. No credit cards. We camped at Apple Valley Campground in a Fifth Wheel.',
+    createdAt: '16 days ago',
+  },
 ];

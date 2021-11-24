@@ -1,4 +1,7 @@
 import { initializeApp } from 'firebase/app';
+import { getStorage } from 'firebase/storage';
+import { getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -10,6 +13,9 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const yelpCampFirebaseApp = initializeApp(firebaseConfig);
+const yelpCampApp = initializeApp(firebaseConfig);
+const auth = getAuth(yelpCampApp);
+const db = getFirestore(yelpCampApp);
+const storage = getStorage(yelpCampApp);
 
-export default yelpCampFirebaseApp;
+export { auth, db, storage };
