@@ -1,8 +1,6 @@
 import { useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useFireAuth } from '../utils/firebase/fireAuth';
-import { getUserName } from '../utils/firebase/db';
-import { addUser } from '../utils/firebase/db';
 import userTestimonial from '../images/userTestimonial.svg';
 import Toast from './Toast.jsx';
 import Loading from './Loading';
@@ -10,7 +8,7 @@ import Loading from './Loading';
 const SignUpPage = () => {
   const [toast, setToast] = useState({ type: '', message: '' });
   const [loading, setLoading] = useState(false);
-  const { fireSignUp, setName } = useFireAuth();
+  const { fireSignUp } = useFireAuth();
   const nameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -36,22 +34,20 @@ const SignUpPage = () => {
 
       setLoading(true);
       setToast({ type: '', message: '' });
-      const currentUser = await fireSignUp(email, password);
-      await addUser(currentUser.auth.currentUser.uid, name, email);
-      const userName = await getUserName(emailRef.current.value);
-      setName(userName);
+      await fireSignUp(email, password, name);
       setLoading(false);
       setToast({
         type: 'success',
         message: 'Congratulations, User created successfully!.',
       });
     } catch (error) {
+      setLoading(false);
       return setToast({
         type: 'error',
-        message: error.message,
+        message: error.code,
       });
     }
-    navigate(-1);
+    navigate(-1, { replace: true });
   };
 
   return (
@@ -96,8 +92,7 @@ const SignUpPage = () => {
           type='password'
           ref={passwordConfirmRef}
         ></input>
-        {/* {visible && <Toast type={toast.type} message={toast.message} />} */}
-        <Toast type={toast.type} message={toast.message} />{' '}
+        <Toast type={toast.type} message={toast.message} />
         <button
           disabled={loading}
           type='submit'

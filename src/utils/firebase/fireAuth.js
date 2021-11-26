@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext, createContext } from 'react';
 import { auth } from './firebaseConfig';
 import {
   onAuthStateChanged,
+  updateProfile,
   signOut,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -27,7 +28,7 @@ export const useFireAuth = () => {
 // Provider hook that creates auth object and handles state
 function useProvideAuth() {
   const [user, setUser] = useState(null);
-  const [name, setName] = useState(null);
+  const [name, setName] = useState('');
 
   // Wrap any Firebase methods we want to use making sure ...
   // ... to save the currentUser to state.
@@ -40,11 +41,21 @@ function useProvideAuth() {
     );
   };
 
-  const fireSignUp = (email, password) => {
+  const fireSignUp = (email, password, name) => {
     return createUserWithEmailAndPassword(auth, email, password).then(
-      (response) => {
-        setUser(response.user);
-        return response.user;
+      (userCredential) => {
+        // Signed in
+        const currentUser = userCredential.user;
+        // ...
+        if (currentUser !== null) {
+          // The user object has basic properties such as display name, email, etc.
+          updateProfile(currentUser, {
+            displayName: name,
+          });
+        }
+        setUser(currentUser);
+        setName(name);
+        return { userCredential };
       }
     );
   };
@@ -75,8 +86,10 @@ function useProvideAuth() {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
+        setName(user.displayName);
       } else {
         setUser(false);
+        setName('');
       }
     });
 

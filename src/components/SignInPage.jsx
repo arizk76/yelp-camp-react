@@ -1,13 +1,14 @@
 import { useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useFireAuth } from '../utils/firebase/fireAuth';
-import { getUserName } from '../utils/firebase/db';
 import userTestimonial from '../images/userTestimonial.svg';
+import Toast from './Toast.jsx';
 import Loading from './Loading';
 
 const SignInPage = () => {
+  const [toast, setToast] = useState({ type: '', message: '' });
   const [loading, setLoading] = useState(false);
-  const { fireSignIn, setName } = useFireAuth();
+  const { fireSignIn } = useFireAuth();
   const emailRef = useRef();
   const passwordRef = useRef();
   let navigate = useNavigate();
@@ -18,13 +19,19 @@ const SignInPage = () => {
     try {
       setLoading(true);
       await fireSignIn(emailRef.current.value, passwordRef.current.value);
-      let userName = await getUserName(emailRef.current.value);
-      setName(userName);
       setLoading(false);
-      navigate(-1);
+      setToast({
+        type: 'success',
+        message: 'User logged-in successfully!.',
+      });
     } catch (error) {
-      console.error(error);
+      setLoading(false);
+      return setToast({
+        type: 'error',
+        message: error.code,
+      });
     }
+    navigate(-1);
   };
   return (
     <section className='px-6'>
@@ -50,15 +57,7 @@ const SignInPage = () => {
           type='password'
           ref={passwordRef}
         ></input>
-        {/* {loading && (
-          <button type='button' disabled>
-            <svg
-              className='animate-spin h-5 w-5 mr-3 ...'
-              viewBox='0 0 24 24'
-            ></svg>
-            Processing
-          </button>
-        )} */}
+        <Toast type={toast.type} message={toast.message} />
         <button
           type='submit'
           className='relative mt-6 w-full h-20 rounded-md bg-black text-white p-5 font-semibold text-xl tracking-wider'

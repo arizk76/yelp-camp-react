@@ -3,25 +3,12 @@ import moment from 'moment';
 import { Link, useParams } from 'react-router-dom';
 import { getCamp, getReviews } from '../utils/firebase/db';
 import map from '../images/campMap.png';
-import { reviews } from '../utils/staticDB/campsData.js';
 import chatImage from '../images/chatBubble.svg';
 
 const CampgroundPage = () => {
   const [currentCamp, setCurrentCamp] = useState({});
   const [currentReviews, setCurrentReviews] = useState([]);
   let params = useParams();
-
-  // campgroundsData.forEach((campground) => {
-  //   if (campground.campgroundId === params.campgroundId) {
-  //     currentCamp = campground;
-  //   }
-  // });
-
-  // reviews.forEach((review) => {
-  //   if (review.campgroundId === params.campgroundId) {
-  //     currentReviews.push(review);
-  //   }
-  // });
 
   useEffect(() => {
     getCamp(params.campgroundId).then((camp) => setCurrentCamp(camp));
@@ -49,12 +36,6 @@ const CampgroundPage = () => {
           <p className='text-Makara text-xl italic mb-2'>
             Submitted By : {currentCamp.submittedBy}
           </p>
-          {/* <p className='text-Makara text-xs italic mb-6'>
-            {moment(
-              `${currentCamp.createdAt}`,
-              'MMMM Do YYYY, h:mm:ss a'
-            ).fromNow()}
-          </p> */}
         </section>
       )}
 

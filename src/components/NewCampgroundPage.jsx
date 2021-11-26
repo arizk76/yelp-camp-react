@@ -79,7 +79,7 @@ const NewCampgroundPage = () => {
   if (!currentUser) {
     return (
       <>
-        <Navigate to='/sign-in' replace />
+        <Navigate to='/sign-in' />
       </>
     );
   }
