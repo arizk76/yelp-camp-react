@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 const CampCard = ({ name, title, image, campgroundId }) => {
   return (
     <div className='rounded-lg m-6 p-6 flex flex-col border-2'>
-      <img className=' rounded-md' src={image} alt={name} />
+      <img className=' rounded-md h-60' src={image} alt={name} />
 
       <div className='p-4'>
-        <h2 className='text-2xl font-semibold mb-2'>{name}</h2>
+        <h2 className='text-xl font-semibold mb-2'>{name}</h2>
 
-        <p className='mb-4 text-Makara text-xl'>{title}</p>
+        <p className='mb-4 text-Makara text-lg'>{title}</p>
       </div>
       <button
         className='
@@ -17,7 +17,7 @@ const CampCard = ({ name, title, image, campgroundId }) => {
         px-4
         py-6
         rounded
-        text-xl
+        text-lg
       '
         type='button'
       >

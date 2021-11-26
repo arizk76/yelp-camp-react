@@ -7,17 +7,17 @@ const CampsSearch = () => {
             type='submit'
             className='p-1 focus:outline-none focus:shadow-outline'
           >
-            <img className=' w-5' src='images/search_icon.svg' alt='Search' />
+            <img className=' w-4' src='images/search_icon.svg' alt='Search' />
           </button>
         </span>
         <input
           placeholder='Search for camps'
           type='search'
-          className=' border-gray-400 border-solid border-opacity-50 border-2 w-full h-20 py-2 text-xl rounded-md pl-16 focus:outline-none focus:bg-white focus:text-gray-900'
+          className=' border-gray-400 border-solid border-opacity-50 border-2 w-full h-20 py-2 text-lg rounded-md pl-16 focus:outline-none focus:bg-white focus:text-gray-900'
           autoComplete='off'
         />
       </div>
-      <button className=' mt-3 w-full h-20 rounded-md bg-black text-white p-5 font-semibold text-xl tracking-wider'>
+      <button className=' mt-3 w-full h-20 rounded-md bg-black text-white p-5 font-semibold text-lg tracking-wider'>
         Search
       </button>
     </>
