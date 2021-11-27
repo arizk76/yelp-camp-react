@@ -35,7 +35,7 @@ const NewCommentPage = () => {
   return (
     <>
       <section className='mx-6 py-12 rounded text-Makara'>
-        <h1 className='text-black text-5xl font-bold '>Add New Comment</h1>
+        <h1 className='text-black text-4xl font-bold '>Add New Comment</h1>
 
         <form onSubmit={handleAddReview} className=' flex flex-col my-8'>
           <label className='mt-6 text-xl py-4 font-semibold'>

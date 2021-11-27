@@ -20,7 +20,7 @@ const CampgroundPage = () => {
   return (
     <>
       {currentCamp && (
-        <section className='mx-6 my-12 p-8 rounded-md shadow border-2'>
+        <section className='mx-6 my-12 py-8 px-4 rounded-md shadow border-2'>
           <img
             className='rounded-md mb-8 w-full'
             src={currentCamp.image}
@@ -39,7 +39,7 @@ const CampgroundPage = () => {
         </section>
       )}
 
-      <section className='mx-6 my-12 p-8 rounded-md shadow border-2'>
+      <section className='mx-6 my-12 py-8 px-4 rounded-md shadow border-2'>
         {currentReviews.map((review) => (
           <div key={review.createdAt} className='mb-8'>
             <div className='flex justify-between items-center'>
@@ -56,12 +56,12 @@ const CampgroundPage = () => {
             </p>
           </div>
         ))}
-        <button className='flex justify-around w-2/3 items-center mt-3 h-20 rounded-md bg-black text-white p-5 font-semibold text-lg tracking-wider'>
-          <img src={chatImage} alt='Leave a review' />
+        <button className='flex justify-around w-auto items-center mt-3 h-16 rounded-md bg-black text-white p-5 font-semibold text-lg tracking-wider'>
+          <img className='mr-3' src={chatImage} alt='Leave a review' />
           <Link to='new-comment'>Leave a Review</Link>
         </button>
       </section>
-      <div className='mx-6 my-12 p-8 rounded-md shadow border-2 '>
+      <div className='mx-6 my-12 py-8 px-4 rounded-md shadow border-2 '>
         <img className='w-full rounded-md' src={map} alt='Map' />
       </div>
     </>

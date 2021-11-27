@@ -10,7 +10,7 @@ const CampsMain = () => {
         own.
       </p>
       <CampsSearch />
-      <p className='mt-6 text-lg underline text-gray-500'>
+      <p className='mt-4 text-lg underline text-gray-500'>
         <Link to={'/new-campground'}>Or add your own campground</Link>
       </p>
     </section>

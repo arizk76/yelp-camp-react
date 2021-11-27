@@ -13,11 +13,11 @@ const CampsSearch = () => {
         <input
           placeholder='Search for camps'
           type='search'
-          className=' border-gray-400 border-solid border-opacity-50 border-2 w-full h-20 py-2 text-lg rounded-md pl-12 focus:outline-none focus:bg-white focus:text-gray-900'
+          className=' border-gray-400 border-solid border-opacity-50 border-2 w-full h-16 py-2 text-lg rounded-md pl-12 focus:outline-none focus:bg-white focus:text-gray-900'
           autoComplete='off'
         />
       </div>
-      <button className=' mt-3 w-full h-20 rounded-md bg-black text-white p-5 font-semibold text-lg tracking-wider'>
+      <button className=' mt-3 w-full h-16 rounded-md bg-black text-white p-5 font-semibold text-lg tracking-wider'>
         Search
       </button>
     </>

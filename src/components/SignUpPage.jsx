@@ -47,12 +47,12 @@ const SignUpPage = () => {
         message: error.code,
       });
     }
-    navigate(-1, { replace: true });
+    navigate('/campgrounds', { replace: true });
   };
 
   return (
     <section className='px-6'>
-      <p className='p-2 text-5xl font-bold'>
+      <p className='p-2 text-4xl font-bold'>
         Start exploring camps from all over the world.
       </p>
       <form className=' flex flex-col mt-4 mb-8' onSubmit={handleSignUp}>
